@@ -11,8 +11,16 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
-        //prova
+        //come entrare con file
+        //team --> git --> clone
+        //Inserire link git hub ; nome git hub ; link token; creare cartella
+        
+        //Importare progetti
+        //commit
+        //team --> push
+        
+        
+        
         ?>
     </body>
 </html>
