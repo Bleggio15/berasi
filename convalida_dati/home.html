@@ -21,9 +21,9 @@ and open the template in the editor.
         </ol>
     </nav>
 
+    <br>
 
-
-    <form onclick='action="file:///W:/GitHub/berasi/convalida_dati/convalidati.html"' >
+    <form onclick='action = "file:///W:/GitHub/berasi/convalida_dati/convalidati.html"' >
 
 
 
@@ -54,6 +54,24 @@ and open the template in the editor.
                 <input type="password"  id="password" placeholder="La password di 8 caratteri o piu deve contenere: -lettera MAIUSCOLA -lettera minuscola -numero "  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">                    
             </div>                                            
         </div>
+
+       <!--altra soluzione password -->
+       <!--
+        <form class="row g-3">
+            <div class="col-auto">
+                <label for="staticEmail2" class="visually-hidden">Email</label>
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+            </div>
+            <div class="col-auto">
+                <label for="inputPassword2" class="visually-hidden">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+            </div>
+        </form>
+       -->
+
 
         <div class="row">
             <!-- CF -->
@@ -101,19 +119,28 @@ and open the template in the editor.
             <button id="botto" type="submit" class="btn btn-primary">Registrati</button>
         </div>
 
+        <!-- checkbox di esempio 
+
+        <div>
+            <div class="form-check">
+                <input id="checkbox1" type="checkbox">
+                <label for="checkbox1">Checkbox di esempio</label>
+            </div>
+        </div>
+        -->
         <script>
             pas = document.getElementById(password);
             bot = document.getElementById(botto);
 
 
-            /*function convalidaPassword() {
-             //if (pas.length > 10) {
+            function convalidaPassword() {
+             if (pas.length > 10) {
              alert("ciaosodjasodsa");
-         
-             //}
-         
-             }*/
-            bot.onsubmit = alert("ciccio");
+             
+             }
+             
+             }
+            pas.onkeyup = alert("ciccio");
 
         </script>
 
