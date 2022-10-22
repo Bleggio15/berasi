@@ -18,16 +18,23 @@ and open the template in the editor.
     <!-- Regole gioco -->
     <div class="container">
         <div class="row">
-            <div class="callout important">
-                <div class="callout-title"><svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-info-circle"></use></svg>Regole di gioco</div>
-                <p>Inserire una lettera alla volta per comporre la parola da indovinare, se si sbaglia l'omino impiccato si comporre di ogni parte del corpo.</p>
+            <div class="col-auto" >
+                <div class="callout important">
+                    <div class="callout-title"><svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-info-circle"></use></svg>Regole di gioco</div>
+                    <p>Inserire una lettera alla volta per comporre la parola da indovinare, se si sbaglia l'omino impiccato si comporre di ogni parte del corpo.</p>
+                </div>
             </div>
 
-            <div class="alert alert-warning" role="alert">
-                La parola da indovinare è: <b>roberto</b>. 
+            <div class="col-4"
+                 <div class="form-group" style="margin-top:50px">
+                    <label for="parolaDaIndovinare">Inserisci la parola da indovinare</label>
+                    <input type="text" id="parolaDaIndovinare" >
+                </div>
             </div>
+
         </div>
     </div>
+
 
     ​<!-- Importo 1 immagine -->
     <img src="file:///W:/GitHub/berasi/impiccato/impiccato/Cattura.PNG" alt="..." class="rounded mx-auto d-block" />
@@ -37,13 +44,56 @@ and open the template in the editor.
     <br>
 
     <!-- parola da indovinare -->
-
-
-    <div class="form-group" style="margin: 100px">
-        <label for="parola">Inserisci la parola da indovinare</label>
-        <input type="text" class="form-control" id="parola">
-
+    <div class="row justify-content-center mt-2">
+        <div class="col-auto">
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">A</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">B</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">C</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">D</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">E</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">F</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">G</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">H</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">I</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">J</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">K</button>
+        </div>
     </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col-auto">
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">L</button>    
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">M</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">N</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">O</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">P</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">Q</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">R</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">S</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">T</button>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col-auto">
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">U</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">V</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">W</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">X</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">Y</button>
+            <button type="button" class="btn btn-small btn-primary mr-1" onclick="letter()">Z</button>
+        </div>
+    </div>
+
+
+    <script>
+
+
+        function letter() {
+            //cambio colore
+            event.srcElement.classList.remove("btn-primary")
+            event.srcElement.classList.add("btn-secondary")
+            event.srcElement.onclick = "";
+        }
+    </script>
 
 
 
