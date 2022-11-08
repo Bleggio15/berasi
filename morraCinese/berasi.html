@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.4/dist/css/bootstrap-italia.min.css" crossorigin="anonymous">
+    </head>
+
+
+    <div class="container mt-5" id="nome-giocatore">  
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="nomeGiocatore">Inserisci il nome del giocatore</label>
+                    <input type="text" id="nomeGiocatore" > 
+                </div>
+                <button type="button" onclick="iniziaGioco()" class="btn btn-primary">inizia</button>  
+            </div>
+        </div>
+    </div>    
+        
+    
+    
+    <div id="gioco" style="display: none">
+        <div class="row" style="text-align: center">
+            <h1>Morra Cinese</h1>   
+        </div>
+
+
+
+        <div style="text-align: center">
+            <br><br>
+            <img src="img/carta_forbice_sasso.png" usemap="#image-map" id="carta_forbice_sasso" >
+            <map name="image-map">
+                <area coords="238,325,63,171" shape="rect" onclick="inizio(1)">  <!-- carta 1--> 
+                <area coords="1,0,180,129"    shape="rect" onclick="inizio(2)"> <!-- forbice 2--> 
+                <area coords="399,167,265,45" shape="rect" onclick="inizio(3)">  <!-- sasso 3--> 
+            </map> 
+            <br><br>
+        </div>
+
+
+        <div class="row" style="text-align: center">
+            <h1 id="scelta">Fai la tua scelta!</h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <!-- utente -->
+                <img src="img/carta_sx.png" usemap="#image-map" id="cartaUtente" hidden>
+                <img src="img/forbice_sx.png" usemap="#image-map" id="forbiceUtente" hidden>
+                <img src="img/sasso_sx.png" usemap="#image-map" id="sassoUtente" hidden>
+
+                <!-- pc -->
+                <img src="img/carta_dx.png" usemap="#image-map" id="cartaPc" hidden>
+                <img src="img/forbice_dx.png" usemap="#image-map" id="forbicePc" hidden>
+                <img src="img/sasso_dx.png" usemap="#image-map" id="sassoPc" hidden>
+            </div>
+        </div>
+
+        <!-- risultati -->
+        <br><br>
+        <div style="text-align: center">
+            <br><br>
+            <h1 id="pareggio" hidden>Pareggio!</h1>
+            <h1 id="vittoria" hidden>Vittoria!</h1>
+            <h1 id="sconfitta" hidden>Sconfitta!</h1>
+        </div>
+    </div>
+
+    <script>
+        
+        function iniziaGioco(){
+            document.getElementById("nome-giocatore").style.display = "none";
+            document.getElementById("gioco").style.display = "";
+        }
+        
+        var giocataUtente = 0;
+        var giocataPc = 0;
+
+        function inizio(mano) {
+            document.getElementById("carta_forbice_sasso").hidden = true;
+            document.getElementById("scelta").hidden = true;
+            switch (mano) {
+                case 1:
+                    document.getElementById("cartaUtente").hidden = false;
+                    giocataUtente = 1;
+                    break;
+                case 2:
+                    document.getElementById("forbiceUtente").hidden = false;
+                    giocataUtente = 2;
+                    break;
+                case 3:
+                    document.getElementById("sassoUtente").hidden = false;
+                    giocataUtente = 3;
+                    break;
+            }
+            avversario();
+            vittoria();
+
+
+
+
+
+        }
+
+
+        function avversario() {
+            num = Math.floor(Math.random() * 3);
+            switch (num) {
+                case 0:
+                    document.getElementById("cartaPc").hidden = false;
+                    giocataPc = 1;
+                    break;
+                case 1:
+                    document.getElementById("forbicePc").hidden = false;
+                    giocataPc = 2;
+                    break;
+                case 2:
+                    document.getElementById("sassoPc").hidden = false;
+                    giocataPc = 3;
+                    break;
+            }
+        }
+
+        function vittoria() {
+            switch (giocataUtente) {
+                case 1:
+                    if (giocataPc === 1) {
+                        document.getElementById("pareggio").hidden = false;
+                    } else if (giocataPc === 2) {
+                        document.getElementById("sconfitta").hidden = false;
+                    } else
+                        (document.getElementById("vittoria").hidden = false);
+                    break;
+                case 2:
+                    if (giocataPc === 1) {
+                        document.getElementById("vittoria").hidden = false;
+                    } else if (giocataPc === 2) {
+                        document.getElementById("pareggio").hidden = false;
+                    } else
+                        (document.getElementById("sconfitta").hidden = false);
+                    break;
+                case 3:
+                    if (giocataPc === 1) {
+                        document.getElementById("sconfitta").hidden = false;
+                    } else if (giocataPc === 2) {
+                        document.getElementById("vittoria").hidden = false;
+                    } else
+                        (document.getElementById("pareggio").hidden = false);
+                    break;
+            }
+
+
+
+
+
+        }
+
+
+    </script>
+
+    <script crossorigin="anonymous">
+        window.__PUBLIC_PATH__ = 'https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.4/dist/fonts'
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.4/dist/js/bootstrap-italia.bundle.min.js" crossorigin="anonymous"></script>    
+
+
+
+
+
+
+
+
+
+<!--
+<img src="" usemap="#image-map">
+<map name="image-map">
+    <area coords="238,325,63,171" shape="rect">
+    <area coords="1,0,180,129"    shape="rect">
+    <area coords="399,167,265,45" shape="rect">
+</map>
+-->
